@@ -9,13 +9,12 @@ import useInitialState from '../hooks/useInitialState';
 
 import '../assets/styles/App.scss';
 
-const App = () => {
+const Home = () => {
   const videos = useInitialState();
   console.log(videos);
 
   return (
-    <div className='App'>
-      <Header />
+    <>
       <Search />
       {videos.mylist && (
         <Categories title='Mi Lista'>
@@ -34,9 +33,8 @@ const App = () => {
           <Carousel>{videos.originals && videos.originals.map(item => <CarouselItem key={item.id} {...item} />)}</Carousel>
         </Categories>
       )}
-      <Footer />
-    </div>
+    </>
   );
 };
 
-export default App;
+export default Home;
